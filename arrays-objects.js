@@ -18,7 +18,7 @@ rates.CHF = 1.1787
 console.log(rates)
 // TODO if you had 100 Euros, calculate the equivalent value in Australian Dollars (AUD)
 function euToAUD (){
-  rates.AUD.value * 100
+  rates(AUD).value * 100
   return euToAUD
 }
 console.log(euToAUD())
