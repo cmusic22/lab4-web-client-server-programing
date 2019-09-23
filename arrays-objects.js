@@ -81,13 +81,6 @@ function printCatName (a){
 Source http://api.nobelprize.org/v1/prize.json?year=2017
 * */
 
-// TODO print the full name of the Literature Nobel laureate.
-// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
-// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
-// TODO write code to print the total number of prize categories
-// TODO write code to count the total number of laureates from 2017. (have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.)
-
-
 var nobel_prize_winners_2017 = {
   "prizes":[
     {
@@ -213,3 +206,17 @@ var nobel_prize_winners_2017 = {
   ]
 };
 
+// TODO print the full name of the Literature Nobel laureate.
+console.log(nobel_prize_winners_2017.prizes)
+  
+// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+// TODO write code to print the total number of prize categories
+// TODO write code to count the total number of laureates from 2017. (have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.)
+let laurts = 0
+nobel_prize_winners_2017.forEach(){
+  if (repo.laureates){
+    laurts++
+  }
+}
+console.log(laurts)
