@@ -17,15 +17,26 @@ var rates = {
 rates.CHF = 1.1787
 console.log(rates)
 // TODO if you had 100 Euros, calculate the equivalent value in Australian Dollars (AUD)
-function euToAUD (){
-  rates(AUD).value * 100
-  return euToAUD
+function euToAUD (a){
+ let conversion = a * 100
+  return conversion
 }
-console.log(euToAUD())
+let total = euToAUD(rates.AUD)
+console.log('100 Euros is ' + total.toFixed(2) + ' AUD')
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
+function highestCurrency(){
+  let largest = 0  
+  for (let i = 0; i < rates.length; i++){
+    if (largest < rates[i]){
+      largest = value
+    }
+  }
+  return largest
+}
 
+console.log(highestCurrency())
 /* b. Use this JavaScript object. This represents the current position of the International Space Station
 at 1pm on January 12th 2018, fetched from http://api.open-notify.org/iss-now.json.
  */
@@ -41,8 +52,9 @@ var iss_location = {
 };
 
 // TODO Extract the latitude value, and log it to the console.
+console.log('ISS Latitude: ' + iss_location.iss_position.latitude)
 // TODO Extract the longitude value, and log it to the console.
-
+console.log('ISS Longitude: ' + iss_location.iss_position.longitude)
 
 
 
@@ -57,6 +69,9 @@ var cats_and_owners = [
 ];
 
 // TODO print Gary Oldman's cat's name
+function printCatName (a){
+  let name = cats_and_owners.name('Gary Oldman')  
+}
 // TODO Taylor Swift's cat is called 'Meredith'. Add this data to the array.
 // TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
 
