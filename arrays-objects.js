@@ -22,7 +22,7 @@ function euToAUD (a){
   return conversion
 }
 let total = euToAUD(rates.AUD)
-console.log('100 Euros is ' + total.toFixed(2) + ' AUD')
+console.log('100 Euros is ' + total.toFixed(2) + ' AUD') //toFixed found on stackoverflow.com
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
@@ -30,7 +30,7 @@ function highestCurrency(){
   let largest = 0  
   for (let i = 0; i < rates.length; i++){
     if (largest < rates[i]){
-      largest = value
+      largest = rates[i]
     }
   }
   return largest
@@ -69,11 +69,14 @@ var cats_and_owners = [
 ];
 
 // TODO print Gary Oldman's cat's name
-function printCatName (a){
-  let name = cats_and_owners.name('Gary Oldman')  
-}
+console.log(cats_and_owners[1].cat) //I know there has to be a better way to do this by targeting 'Gary Oldman'
+
 // TODO Taylor Swift's cat is called 'Meredith'. Add this data to the array.
+cats_and_owners.push({ name: 'Taylor Swift', cat: 'Meredith'})
 // TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
+cats_and_owners.forEach(function(name, cat){
+  console.log(name, cat)
+})
 
 
 
@@ -207,16 +210,72 @@ var nobel_prize_winners_2017 = {
 };
 
 // TODO print the full name of the Literature Nobel laureate.
-console.log(nobel_prize_winners_2017.prizes)
+
+function getFirstName(n){
+  if (n.prizes["category"] == ["literature"]){
+    return "firstname"
+  } else {
+    return 'Not Found'
+  }
+}
+
+function getSurName(b){
+  if(b.prizes["category"] == ["literature"]){
+    return surname
+  } else {
+    return 'Not Found'
+  }
+}
+
+let first = getFirstName(nobel_prize_winners_2017)
+let last = getSurName(nobel_prize_winners_2017)
+console.log(first + ' ' + last)
   
 // TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+let laureateID = {}
+function getLaureatesID (z) {
+  for (let i = 0; i < z.length; i++) {
+    if (z.prizes.laureates.id == true){
+      laureateID.push(id)
+    }
+  }
+}
+
+let printID = getLaureatesID(nobel_prize_winners_2017)
+console.log(printID)
+
+
+
 // TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+let catArray = {}
+function getPrizeCategories (y) {
+  for (let i = 0; i < y.length; i++){
+    if(y.prizes.categories == true){
+      catArray.push(y.prizes.categories)
+    }
+  }
+}
+
+let printCat = getPrizeCategories(nobel_prize_winners_2017)
+console.log(printCat)
+
 // TODO write code to print the total number of prize categories
+let prizeCat = 0
+nobel_prize_winners_2017.forEach(function(n){
+  for (let i =0; i < n.length; i++){
+    if(n.prizes == 'category'){
+      prizeCat++
+    }
+  }
+})
+console.log(prizeCat)
+
+
 // TODO write code to count the total number of laureates from 2017. (have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.)
-let laurts = 0
+/*let laurts = 0
 nobel_prize_winners_2017.forEach(){
   if (repo.laureates){
     laurts++
   }
 }
-console.log(laurts)
+console.log(laurts)*/
